@@ -1,0 +1,54 @@
+Version: 1.8 # minimal SMASH version to use with this config file
+
+Logging:
+    default: INFO
+
+General:
+  Modus: Collider
+  Time_Step_Mode: Fixed
+  Delta_Time: 0.1 #in fm
+  End_Time: 100.0 
+  Randomseed: -1
+  Nevents: 1 #how much events do you need (change at will)
+  Use_Grid: True
+
+Collision_Term:
+  Force_Decays_At_End: True #decay resonances at the end
+  Include_Weak_And_EM_Decays_At_The_End: True #enable weak and EM decays, f.eg. pi0, eta or lambda
+
+Modi:
+  Collider:
+
+    Projectile:
+      Particles: {2212: 79, 2112: 118} #Au197, used by HADES (change at will)
+    Target:
+      Particles: {2212: 79, 2112: 118}
+
+    Sqrtsnn: 2.3 #(change at will)
+    Fermi_Motion: on
+    Calculation_Frame: center of mass #(change at will)
+    Collisions_Within_Nucleus: False #First collisions within the same nucleus forbidden
+    Initial_Distance: 2.0 #2fm initial separation (change at will)
+
+    Impact:
+      Sample: quadratic
+      Range: [0.0, 8.1] #0-40% centrality
+
+#Potentials:
+#  Skyrme: #Hard EoS for HADES
+#    Skyrme_A: -124.0
+#    Skyrme_B: 71.0
+#    Skyrme_Tau: 2.0
+
+#  Symmetry:
+#    S_Pot: 18.0
+
+Output:
+  Particles:
+    Format: [Oscar2013]
+    Extended: True
+
+    #down bellow choose 1 option
+    Only_Final: IfNotEmpty # save only final state of particles (at the end)
+    #Output_Times: [31.0,32.0,33.0,34.0,35.0,36.0] timesteps to save (around freezeout)
+
